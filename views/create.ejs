@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Poll Application</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+    <div class="min-h-screen flex items-center justify-center bg-gray-100">
+        <div class="w-full max-w-lg bg-white shadow-md rounded-lg p-6">
+            <h2 class="text-2xl font-bold text-gray-800 text-center mb-4">Create a Poll</h2>
+            <form action="/create" method="POST" class="space-y-4">
+                <!-- Poll Title -->
+                <div>
+                    <label for="poll-title" class="block text-sm font-medium text-gray-600">Poll Title</label>
+                    <input type="text" id="poll-title" name="title"
+                        class="w-full mt-1 px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                        placeholder="Enter your poll question" required />
+                </div>
+                <!-- Poll Description -->
+                <div>
+                    <label for="poll-description" class="block text-sm font-medium text-gray-600">Poll Description</label>
+                    <textarea id="poll-description" name="description"
+                        class="w-full mt-1 px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                        placeholder="Provide a brief description of your poll (optional)" rows="2"></textarea>
+                </div>
+
+                <!-- Poll Options -->
+                <div>
+                    <label for="poll-options" class="block text-sm font-medium text-gray-600">Poll Options</label>
+                    <!-- Option 1 -->
+                    <div class="flex items-center mt-2">
+                        <input type="text" name="options"
+                            class="flex-1 px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                            placeholder="Option 1" required />
+                    </div>
+                    <!-- Option 2 -->
+                    <div class="flex items-center mt-2">
+                        <input type="text" name="options"
+                            class="flex-1 px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                            placeholder="Option 2" required />
+                    </div>
+                    <!-- Add More Options -->
+                    <div class="mt-2 text-sm text-blue-500 hover:underline cursor-pointer" id="add-option">
+                        + Add another option
+                    </div>
+                </div>
+
+                <!-- Submit Button -->
+                <div>
+                    <button type="submit"
+                        class="w-full bg-blue-500 text-white font-medium py-2 px-4 rounded-md hover:bg-blue-600 focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 focus:outline-none">
+                        Submit Poll
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // JavaScript to dynamically add more poll options
+        const addOptionButton = document.getElementById('add-option');
+        const form = addOptionButton.parentElement;
+        let optionNumber = 3;
+
+        addOptionButton.addEventListener('click', () => {
+            const newOption = document.createElement('div');
+            newOption.classList.add('flex', 'items-center', 'mt-2');
+            newOption.innerHTML = `
+            <input
+              type="text"
+              name="options"
+              class="flex-1 px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:outline-none"
+              placeholder="Option ${optionNumber++}"
+              required
+            />
+          `;
+            form.insertBefore(newOption, addOptionButton);
+        });
+    </script>
+</body>
+
+</html>

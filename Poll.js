@@ -11,12 +11,18 @@ const pollSchema = new Schema({
     required: true,
     trim: true,
   },
-  totalVote: Number,
+  totalVotes: {
+    type: Number,
+    default: 0,
+  },
   options: {
     type: [
       {
         name: String,
-        vote: Number,
+        votes: {
+          type: Number,
+          default: 0,
+        },
       },
     ],
   },
