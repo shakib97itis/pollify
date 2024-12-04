@@ -38,7 +38,7 @@ To set up Pollify locally:
 3. Start the application:
 
    ```bash
-   npm start
+   npm run start
    ```
 
 ## Author
