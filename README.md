@@ -15,6 +15,10 @@ Pollify is a web application built using the Model-View-Controller (MVC) archite
 - **Backend**: Node.js, Express.js (MVC architecture)
 - **Database**: MongoDB.
 
+## Live Demo
+
+You can check out the live version of the project here: [Pollify Live Demo](https://pollify1.vercel.app/)
+
 ## Installation
 
 To set up Pollify locally:
