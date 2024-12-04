@@ -3,6 +3,7 @@ const express = require("express");
 const morgan = require("morgan");
 const mongoose = require("mongoose");
 const pollController = require("./pollController");
+const path = require("path");
 
 const app = express();
 app.set("view engine", "ejs");
@@ -36,6 +37,6 @@ mongoose
     app.listen(PORT, () => {
       console.log(`App is listening on port ${PORT}`);
     });
-    module.exports = app;
   })
   .catch((err) => console.error(err));
+module.exports = app;
