@@ -2,11 +2,9 @@
   "name": "pollify",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
-    "start-dev": "nodemon app.js",
-    "start": "node app.js",
-    "build": "node app.js"
+    "start": "nodemon app.js"
   },
   "keywords": [],
   "author": "",
