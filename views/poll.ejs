@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100">
+    <header class="bg-blue-500 text-white shadow-md">
+        <div class="container mx-auto px-4 py-4 flex items-center justify-between">
+            <a href="/" class="text-2xl font-bold">Pollify</a>
+            <h2 class="text-3xl font-bold text-center text-white">Vote Poll</h2>
+            <!-- Create New Poll Button -->
+            <div class="text-center">
+                <a href="/">
+                    <button
+                        class="bg-green-500 text-white font-medium py-2 px-6 rounded-md hover:bg-green-600 focus:outline-none">
+                        Home
+                    </button>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <div>
+        <div class="p-6 flex items-center justify-center">
+            <div class="w-full max-w-lg bg-white shadow-md rounded-lg p-6">
+                <!-- Poll Title -->
+                <h2 class="text-2xl font-bold text-gray-800 text-center mb-4">
+                  <%= poll.title %>
+                </h2>
+                <!-- Poll Description -->
+                <p class="text-sm text-gray-600 mb-6">
+                  <%= poll.description %>
+                </p>
+                <!-- Poll Form -->
+                <form action="/vote/<%= poll._id %>" method="POST">
+                  <!-- Poll Options -->
+                  <div>
+                    <% for (const option of poll.options) { %>
+                      <div class="flex items-center mb-3">
+                        <input
+                          type="radio"
+                          id="<%= option._id %>"
+                          name="selectedOption"
+                          value="<%= option._id %>"
+                          class="form-radio text-blue-500"
+                          required>
+                        <label for="<%= option._id %>" class="ml-2 text-gray-600">
+                          <%= option.name %>
+                        </label>
+                      </div>
+                    <% } %>
+                  </div>
+              
+                  <!-- Submit Button -->
+                  <div class="mt-4 text-center">
+                    <button
+                      type="submit"
+                      class="bg-blue-500 text-white font-medium py-2 px-6 rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400">
+                      Vote
+                    </button>
+                  </div>
+                </form>
+              </div>
+              
+        </div>
+    </div>
+</body>
+
+</html>

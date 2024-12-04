@@ -8,11 +8,26 @@
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
-<body>
-    <div class="min-h-screen flex items-center justify-center bg-gray-100">
+<body class="bg-gray-100">
+    <header class="bg-blue-500 text-white shadow-md">
+        <div class="container mx-auto px-4 py-4 flex items-center justify-between">
+            <a href="/" class="text-2xl font-bold">Pollify</a>
+            <h2 class="text-3xl font-bold text-center text-white">Create A New Poll</h2>
+            <!-- Create New Poll Button -->
+            <div class="text-center">
+                <a href="/">
+                    <button
+                        class="bg-green-500 text-white font-medium py-2 px-6 rounded-md hover:bg-green-600 focus:outline-none">
+                        Home
+                    </button>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <div class="flex items-center justify-center pt-6">
         <div class="w-full max-w-lg bg-white shadow-md rounded-lg p-6">
-            <h2 class="text-2xl font-bold text-gray-800 text-center mb-4">Create a Poll</h2>
-            <form action="/create" method="POST" class="space-y-4">
+            <form action="/create" method="POST" class="space-y-4 pt-4">
                 <!-- Poll Title -->
                 <div>
                     <label for="poll-title" class="block text-sm font-medium text-gray-600">Poll Title</label>
@@ -22,7 +37,8 @@
                 </div>
                 <!-- Poll Description -->
                 <div>
-                    <label for="poll-description" class="block text-sm font-medium text-gray-600">Poll Description</label>
+                    <label for="poll-description" class="block text-sm font-medium text-gray-600">Poll
+                        Description</label>
                     <textarea id="poll-description" name="description"
                         class="w-full mt-1 px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:outline-none"
                         placeholder="Provide a brief description of your poll (optional)" rows="2"></textarea>

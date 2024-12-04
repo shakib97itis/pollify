@@ -11,9 +11,21 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 const PORT = process.env.PORT || 3000;
 
-app.get("/create", pollController.createGetController);
-app.post("/create", pollController.createPostController);
+// app.get("/", (req, res, next) => {
+//   res.render("pollResult")
+// });
 
+app.get("/", pollController.getAllPolls);
+
+app.get("/create", pollController.getCreatePoll);
+app.post("/create", pollController.postCreatePoll);
+
+app.get("/vote/:id", pollController.getPoll);
+app.post("/vote/:id", pollController.postPoll)
+
+app.get("/result/:id", pollController.getResult)
+
+// app.get("result/:id", pollController.getResult)
 
 mongoose
   .connect(
