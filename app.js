@@ -6,6 +6,7 @@ const pollController = require("./pollController");
 
 const app = express();
 app.set("view engine", "ejs");
+app.set("views", path.join(__dirname, "views"));
 app.use(morgan("dev"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -21,9 +22,9 @@ app.get("/create", pollController.getCreatePoll);
 app.post("/create", pollController.postCreatePoll);
 
 app.get("/vote/:id", pollController.getPoll);
-app.post("/vote/:id", pollController.postPoll)
+app.post("/vote/:id", pollController.postPoll);
 
-app.get("/result/:id", pollController.getResult)
+app.get("/result/:id", pollController.getResult);
 
 // app.get("result/:id", pollController.getResult)
 
